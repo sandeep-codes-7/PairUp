@@ -1,0 +1,6 @@
+@import "tailwindcss";
+/* @import url('https://fonts.googleapis.com/'); */
+
+.font-special {
+  font-family: 'Special Elite',serif;
+}
