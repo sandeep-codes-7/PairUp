@@ -1,6 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Special+Elite&display=swap');
 @import "tailwindcss";
-/* @import url('https://fonts.googleapis.com/'); */
+@import url('https://fonts.googleapis.com/');
+@tailwind components;
+@tailwind utilities;
 
 .font-special {
   font-family: 'Special Elite',serif;
+}
+
+/* Add this new block */
+@layer utilities {
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;     /* Firefox */
+  }
+}
+
+@theme {
+  --font-welcome: "Poppins", sans-serif;
+  --font-display: "Kaushan Script", cursive;
 }

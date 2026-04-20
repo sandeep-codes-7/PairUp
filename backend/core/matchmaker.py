@@ -22,9 +22,15 @@ async def match_users_task():
             u1 = users[i]
             if u1.id in matched_ids: continue
 
+            if u1.id not in manager.active_users: 
+                continue
+
             for j in range(i + 1, len(users)):
                 u2 = users[j]
                 if u2.id in matched_ids: continue
+
+                if u2.id not in manager.active_users: 
+                    continue
 
                 u1_interests = {interest.lower().strip() for interest in u1.interests}
                 u2_interests = {interest.lower().strip() for interest in u2.interests}

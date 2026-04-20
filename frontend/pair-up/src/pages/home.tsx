@@ -64,7 +64,7 @@ function Home() {
           </p>
           <div className="text-white flex gap-3 mt-10">
             <a
-              href="/init"
+              href="/chat"
               className="p-2 bg-white rounded-md text-black font-bold w-25 text-2xl"
             >
               Chat
