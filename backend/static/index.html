@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+    <title>pair-up | anonymous chat app</title>
+    <link rel="stylesheet" href="./css/main.css" />
+    <style>
+        .setup-screen { text-align: center; margin-top: 50px; }
+        .hidden { display: none; }
+    </style>
+</head>
+<body>
+
+<div id="setup-page" class="setup-screen">
+    <div class="username-page-container">
+        <h1 class="title">Find a Match</h1>
+        <div class="form-group">
+            <input type="text" id="name" placeholder="Your Nickname (e.g. Sandy)" class="form-control" />
+        </div>
+        <div class="form-group">
+<!--            <p>your gender:</p>-->
+            <select id="gender" class="form-control">
+<!--                <option selected>select your gender</option>-->
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <input type="text" id="interests" placeholder="Interests (comma separated, e.g. anime, coding)" class="form-control" />
+        </div>
+        <button onclick="startSession()" class="accent">Find a Match</button>
+        <p id="setup-status" style="margin-top: 15px; color: #6db33f;"></p>
+    </div>
+</div>
+
+<div id="chat-page" class="hidden">
+    <div class="chat-container">
+        <div class="chat-header">
+            <a id="back-button" onclick="handleBack()">go back</a>
+            <h2 id="chat-title">Chatting with Stranger</h2>
+        </div>
+        <ul id="messageArea"></ul>
+        <form id="messageForm" name="messageForm">
+            <div class="form-group">
+                <div class="input-group clearfix">
+                    <input type="text" id="message" placeholder="Type a message..." autocomplete="off" class="form-control"/>
+                    <button type="submit" class="primary">Send</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sockjs-client/1.1.4/sockjs.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/stomp.js/2.3.3/stomp.min.js"></script>
+<script src="./js/main.js"></script>
+</body>
+</html>
