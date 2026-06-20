@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Kaushan+Script&family=Special+Elite&display=swap');
 @import "tailwindcss";
-@import url('https://fonts.googleapis.com/');
+/* @import url('https://fonts.googleapis.com/'); */
 @tailwind components;
 @tailwind utilities;
 

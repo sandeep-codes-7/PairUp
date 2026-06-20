@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import Home from './pages/home';
-import Initiator from './pages/InitiatingPage';
+// import Initiator from './pages/InitiatingPage';
 import Dashboard from './pages/Dashboard';
 
 function App() {
@@ -8,7 +8,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home/>}/>
-        <Route path='/init' element={<Initiator/>}/>
+        <Route path='/init' element={<Dashboard/>}/>
         <Route path='/chat' element={<Dashboard/>}/>
       </Routes>
     </BrowserRouter>

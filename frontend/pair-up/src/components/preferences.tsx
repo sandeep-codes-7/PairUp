@@ -64,7 +64,7 @@ export default function Preferences() {
     setSetupStatus("Registering your profile...");
 
     try {
-      const response = await fetch('http://localhost:8080/api/chat/connect', {
+      const response = await fetch('http://127.0.0.1:8080/api/chat/connect', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
@@ -86,7 +86,7 @@ export default function Preferences() {
   const connectWebSocket = (userId: string) => {
     // const protocol = window.location.protocol === "https:" ? "wss://" : "ws://";
     // const wsUrl = protocol + window.location.host + "/ws/" + userId;
-    const wsUrl = `ws://localhost:8080/ws/${userId}`;    
+    const wsUrl = `ws://127.0.0.1:8080/ws/${userId}`;    
     ws.current = new WebSocket(wsUrl);
 
     ws.current.onmessage = (event) => {

@@ -1,11 +1,12 @@
 import asyncio
 from contextlib import asynccontextmanager
-from fastapi import FastAPI
+from fastapi import FastAPI, status
 from fastapi.staticfiles import StaticFiles
 from fastapi.responses import FileResponse
 from fastapi.middleware.cors import CORSMiddleware
 from api.routes import router
 from core.matchmaker import match_users_task
+
 
 # Lifespan context manager to handle background tasks natively
 @asynccontextmanager
@@ -21,7 +22,7 @@ app = FastAPI(lifespan=lifespan)
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:9090", "http://127.0.0.1:9090", "http://0.0.0.0:9090"], # Vite's default ports
+    allow_origins=["*"], # Vite's default ports
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -38,6 +39,10 @@ app.mount("/js", StaticFiles(directory="static/js"), name="js")
 @app.get("/")
 async def get_index():
     return FileResponse("static/index.html")
+
+@app.get("/health")
+async def health():
+    return status.HTTP_200_OK
 
 if __name__ == "__main__":
     import uvicorn
